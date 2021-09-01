@@ -9,12 +9,20 @@ export default function usePagination(cantPage, arr) {
     setData(arr.slice(page * cantPage, page * cantPage + cantPage));
   }, [arr, page, cantPage]);
 
-  const changePage = () => {
+  const prevPage = () => {
+    console.log(page);
+    if (page > 0) {
+      setPage(page - 1);
+    } else {
+      setPage(0);
+    }
+  };
+  const nextPage = () => {
     if (page < totalPage - 1) {
       setPage(page + 1);
     } else {
       setPage(0);
     }
   };
-  return [data, changePage, page];
+  return [data, nextPage, prevPage, page];
 }

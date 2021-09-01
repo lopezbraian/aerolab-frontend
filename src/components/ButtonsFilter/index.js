@@ -1,11 +1,10 @@
-import { AppContext } from "appContext";
+import { FilterContext } from "context/filterContext";
 import React, { useContext, useState } from "react";
-import { Button, WrapButtons } from "./style";
+import { Button, WrapButtons, WrapSort } from "./style";
 
 export default function ButtonsFilter() {
-  const { filter, setFilter } = useContext(AppContext);
+  const { filter, changeFilter } = useContext(FilterContext);
 
-  const [keyActive, setKeyActive] = useState(filter);
   const [buttonsData, setButtonsData] = useState({
     recent: {
       name: "Most recent",
@@ -21,21 +20,31 @@ export default function ButtonsFilter() {
     },
   });
 
-  const changeButtonActive = (keyFilter) => {
+  const updateFilterActive = (newFilter) => {
+    changeFilter(newFilter);
+  };
+  const updateButton = (keyFilter) => {
     const newButtonData = Object.assign({}, buttonsData);
-    newButtonData[keyActive].active = false;
+    newButtonData[filter].active = false;
     newButtonData[keyFilter].active = true;
-    setFilter(keyFilter);
-    setKeyActive(keyFilter);
     setButtonsData(newButtonData);
   };
+  const changeButtonActive = (keyFilter) => {
+    updateButton(keyFilter);
+    updateFilterActive(keyFilter);
+  };
   return (
-    <WrapButtons>
-      {Object.keys(buttonsData).map((k, index) => (
-        <li key={index} onClick={() => changeButtonActive(k)}>
-          <Button active={buttonsData[k].active}>{buttonsData[k].name}</Button>
-        </li>
-      ))}
-    </WrapButtons>
+    <WrapSort>
+      <p>Sort by:</p>
+      <WrapButtons>
+        {Object.keys(buttonsData).map((k, index) => (
+          <li key={index} onClick={() => changeButtonActive(k)}>
+            <Button active={buttonsData[k].active}>
+              {buttonsData[k].name}
+            </Button>
+          </li>
+        ))}
+      </WrapButtons>
+    </WrapSort>
   );
 }

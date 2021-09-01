@@ -1,5 +1,6 @@
 import React from "react";
 import arrowRight from "assets/icons/arrow-right.svg";
+import arrowLeft from "assets/icons/arrow-left.svg";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -7,7 +8,8 @@ const Button = styled.button`
   border: none;
   padding: 0;
   margin: 0;
-  background: url(${arrowRight});
+  background: ${(props) =>
+    props.type === "next" ? `url(${arrowRight})` : `url(${arrowLeft})`};
   width: 48px;
   height: 48px;
   background-position: center;

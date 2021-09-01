@@ -13,8 +13,9 @@ import {
   CoinPrecio,
 } from "./style";
 import coinSVG from "assets/icons/coin.svg";
-import { AppContext } from "appContext";
+import { UserContext } from "context/userContext";
 import { formatNumber } from "Utils";
+import Divider from "components/Common/Divider";
 
 const canBuyProduct = (userCoin, costProduct) => {
   let result = {
@@ -33,11 +34,12 @@ const canBuyProduct = (userCoin, costProduct) => {
 };
 
 export default function Product({ data }) {
-  const { user, updateCoins } = useContext(AppContext);
+  const { user, updateCoins } = useContext(UserContext);
 
   const { canBuy, need } = canBuyProduct(user.coins, data.cost);
 
   const [bought, setBought] = useState(false);
+
   const useCoins = () => {
     if (canBuy) {
       updateCoins(data.cost);
@@ -67,17 +69,11 @@ export default function Product({ data }) {
         <IconStore></IconStore>
       )}
       <ImageProduct>
-        <img src={data.img.url} alt={data.name} />
+        <img src={data.img.url} loading="lazy" alt={data.name} />
       </ImageProduct>
       <FooterProduct>
-        <div
-          style={{
-            width: "100%",
-            marginBottom: "12px",
-            height: "1px",
-            background: "#d9d9d9",
-          }}
-        ></div>
+        <Divider width="100%" color="#d9d9d9" margin="0 0 12px 0"></Divider>
+
         <PCategory>{data.category}</PCategory>
         <PName>{data.name}</PName>
       </FooterProduct>

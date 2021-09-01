@@ -14,7 +14,7 @@ export const CoinStyle = styled.div`
     margin: 0;
     font-size: 24px;
     font-weight: 400;
-    color: #616161;
+    color: ${(props) => props.theme.text.primary};
     margin-right: 5px;
   }
   .image {

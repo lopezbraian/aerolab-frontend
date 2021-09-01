@@ -15,7 +15,7 @@ export const HeaderStyle = styled.div`
     align-items: center;
     .name {
       font-size: 24px;
-      color: #616161;
+      color: ${(props) => props.theme.text.primary};
       margin-right: 10px;
     }
   }

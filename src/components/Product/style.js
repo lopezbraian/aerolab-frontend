@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 import buyBlue from "assets/icons/buy-blue.svg";
 
@@ -20,7 +20,7 @@ export const ButtonNeed = styled.div`
   display: flex;
   align-items: center;
   opacity: 0.8;
-  background: #616161;
+  background: ${(props) => props.theme.text.primary};
   padding: 5px 10px;
   border-radius: 100px;
   font-size: 14px;
@@ -60,30 +60,24 @@ export const ActionProduct = styled.div`
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(-180deg, #0ad4fa 0%, #25bbf1 100%);
+    background: linear-gradient(
+      -180deg,
+      ${(props) => props.theme.colors.primary} 0%,
+      #25bbf1 100%
+    );
     opacity: 1;
     z-index: -1;
     opacity: 0.8;
   }
 `;
 
-const animation = keyframes`
-
-  0%{
-    transform: scale(1);
-  }
-  100%{
-    transform: scale(0);
-  }
-
-`;
 export const ButtonRedeem = styled.button`
   background: #ffffff;
   width: 228px;
   height: 42px;
   border: none;
   font-size: 18px;
-  color: #616161;
+  color: ${(props) => props.theme.text.primary};
   cursor: pointer;
   border-radius: 100px;
 `;
@@ -124,10 +118,10 @@ export const ImageProduct = styled.div`
 `;
 export const PCategory = styled.p`
   font-size: 16px;
-  color: #a3a3a3;
+  color: ${(props) => props.theme.text.secondary};
 `;
 
 export const PName = styled.p`
   font-size: 18px;
-  color: #616161;
+  color: ${(props) => props.theme.text.primary};
 `;

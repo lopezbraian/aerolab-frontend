@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { HeaderStyle } from "./style";
 import aerolabSVG from "assets/aerolab-logo.svg";
 import Coin from "components/Coin";
-import { AppContext } from "appContext";
+import { UserContext } from "context/userContext";
 import { formatNumber } from "Utils";
 
-export default function Header() {
-  const { user } = useContext(AppContext);
+export default function TopNavbar() {
+  const { user } = useContext(UserContext);
   return (
     <HeaderStyle>
       <div className="logo">

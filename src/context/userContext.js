@@ -1,8 +1,7 @@
 import { useState, createContext } from "react";
-export const AppContext = createContext();
+export const UserContext = createContext();
 
-export default function AppContextProvider({ children }) {
-  const [filter, setFilter] = useState("recent");
+export default function UserContextProvider({ children }) {
   const [user, setUser] = useState({
     name: "Jhon Kite",
     coins: 1600,
@@ -15,10 +14,8 @@ export default function AppContextProvider({ children }) {
     });
   };
   const value = {
-    filter,
-    setFilter,
     user,
     updateCoins,
   };
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 }
