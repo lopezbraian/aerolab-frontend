@@ -73,7 +73,6 @@ export default function Product({ data }) {
       </ImageProduct>
       <FooterProduct>
         <Divider width="100%" color="#d9d9d9" margin="0 0 12px 0"></Divider>
-
         <PCategory>{data.category}</PCategory>
         <PName>{data.name}</PName>
       </FooterProduct>

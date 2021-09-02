@@ -1,7 +1,5 @@
 import styled from "styled-components";
-
 import buyBlue from "assets/icons/buy-blue.svg";
-
 import buyLight from "assets/icons/buy-white.svg";
 
 export const IconStore = styled.span`

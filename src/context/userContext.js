@@ -4,7 +4,7 @@ export const UserContext = createContext();
 export default function UserContextProvider({ children }) {
   const [user, setUser] = useState({
     name: "Jhon Kite",
-    coins: 1600,
+    coins: 134600,
   });
 
   const updateCoins = (coinsUsed) => {

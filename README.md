@@ -16,6 +16,7 @@ We want to see how your code’s UI interacts with different states and user int
 
 (Keep in mind that the jury will also take into account the quality of the submitted code. Simply meeting this criteria doesn’t mean your solution will automatically win)
 
+- [ ] Done Tests.
 - [x] Each product should have a visible price in points.
 - [x] The user should be able to sort products by price, from highest to lowest, and vice-versa.
 - [x] The user should be able to see how many points they have in their account.

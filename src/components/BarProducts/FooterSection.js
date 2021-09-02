@@ -6,7 +6,8 @@ import Divider from "components/Common/Divider";
 
 export default function FooterSection({
   cantProductos,
-  changePage,
+  nextPage,
+  prevPage,
   cant_page,
   page,
 }) {
@@ -24,7 +25,14 @@ export default function FooterSection({
           </p>
         </CantProduct>
         <WrapNext>
-          <ButtonNextPrev onClick={changePage} />
+          {page > 0 && (
+            <ButtonNextPrev
+              style={{ marginRight: "10px" }}
+              onClick={prevPage}
+              type="prev"
+            />
+          )}
+          <ButtonNextPrev onClick={nextPage} type="next" />
         </WrapNext>
       </Wrapper>
       <Divider color="#d9d9d9" width={"calc(100% - 48px)"} margin="24px auto" />

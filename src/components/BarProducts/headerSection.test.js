@@ -1,34 +1,43 @@
-import { render, screen } from "@testing-library/react";
-import { FilterContext } from "context/filterContext";
-import theme from "style/theme";
-import { ThemeProvider } from "styled-components";
-import HeaderSection from "./HeaderSection";
+import { render, screen } from "Utils/test-util";
+import HeaderSection from "components/BarProducts/HeaderSection";
 
 describe("Header Section", () => {
-  let numberofproducts;
   const props = {
-    cantProducts: 32,
     page: 0,
-    changePage: (page) => {
-      props.page += 1;
+    cantProducts: 32,
+    nextPage: () => {
+      props.page = props.page + 1;
     },
-    cant_page: 2,
+    prevPage: () => {
+      props.page = props.page - 1;
+    },
+    cant_page: 16,
   };
 
-  beforeEach(() => {
-    render(
-      <ThemeProvider theme={theme}>
-        <FilterContext.Provider value={{ filter: "recent" }}>
-          <HeaderSection {...props} />
-        </FilterContext.Provider>
-      </ThemeProvider>
-    );
-    numberofproducts = (props.page + 1) * props.cant_page;
+  it("should render", () => {
+    render(<HeaderSection {...props}></HeaderSection>);
+
+    expect(
+      screen.getByText(`${props.cant_page} of ${props.cantProducts} products`)
+    ).toBeInTheDocument();
   });
 
-  it("should render <HeaderSection/>", () => {
-    expect(
-      screen.getByText(`${numberofproducts} of ${props.cantProducts} products`)
-    ).toBeInTheDocument();
+  it("should render button prev when press button next", () => {
+    const props = {
+      page: 1,
+      cantProducts: 32,
+      nextPage: () => {
+        props.page = props.page + 1;
+      },
+      prevPage: () => {
+        props.page = props.page - 1;
+      },
+      cant_page: 16,
+    };
+    render(<HeaderSection {...props}></HeaderSection>);
+
+    //Cant of buttons with button prev is 4
+    const buttonsCant = screen.getAllByRole("button").length - 1;
+    expect(buttonsCant).toEqual(4);
   });
 });
