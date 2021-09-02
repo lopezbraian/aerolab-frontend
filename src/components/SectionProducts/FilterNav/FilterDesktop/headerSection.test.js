@@ -11,14 +11,16 @@ describe("Header Section", () => {
     prevPage: () => {
       props.page = props.page - 1;
     },
-    cant_page: 16,
+    cantProdutPerPage: 16,
   };
 
   it("should render", () => {
     render(<HeaderSection {...props}></HeaderSection>);
 
     expect(
-      screen.getByText(`${props.cant_page} of ${props.cantProducts} products`)
+      screen.getByText(
+        `${props.cantProdutPerPage} of ${props.cantProducts} products`
+      )
     ).toBeInTheDocument();
   });
 

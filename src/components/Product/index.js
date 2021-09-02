@@ -48,7 +48,7 @@ export default function Product({ data }) {
   };
 
   return (
-    <WrapPruduct>
+    <WrapPruduct bought={bought}>
       <ActionProduct>
         <WrapPrecio>
           {formatNumber(data.cost)}

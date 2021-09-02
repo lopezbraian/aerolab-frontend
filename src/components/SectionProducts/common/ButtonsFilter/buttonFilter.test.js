@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { FilterContext } from "context/filterContext";
-import ButtonFilter from "components/ButtonsFilter";
+import ButtonFilter from "components/SectionProducts/common/ButtonsFilter";
 
 test("Should Render <ButtonFilter>", async () => {
   render(

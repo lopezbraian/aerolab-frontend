@@ -83,6 +83,7 @@ export const ButtonRedeem = styled.button`
 export const WrapPruduct = styled.div`
   width: 276px;
   height: 276px;
+  margin: auto;
   background-color: #ffffff;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 12px;

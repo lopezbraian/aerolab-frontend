@@ -4,7 +4,7 @@ export const HeaderStyle = styled.div`
   display: flex;
   align-items: center;
   height: 80px;
-  padding: 0 42px;
+  padding: 0 20px;
   .logo {
     margin: 22px auto 22px 0;
     width: 38px;
@@ -18,5 +18,8 @@ export const HeaderStyle = styled.div`
       color: ${(props) => props.theme.text.primary};
       margin-right: 10px;
     }
+  }
+  @media screen and (min-width:768px) {
+    padding: 0 42px;
   }
 `;

@@ -15,7 +15,7 @@ Users have an undetermined amount of points accumulated, and each product is wor
 We want to see how your code’s UI interacts with different states and user interactions, so your product should comply with the following guidelines:
 
 (Keep in mind that the jury will also take into account the quality of the submitted code. Simply meeting this criteria doesn’t mean your solution will automatically win)
-
+- [ ] Responsive for devices mobile
 - [ ] Done Tests.
 - [x] Each product should have a visible price in points.
 - [x] The user should be able to sort products by price, from highest to lowest, and vice-versa.

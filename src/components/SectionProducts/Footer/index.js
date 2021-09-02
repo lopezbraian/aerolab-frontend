@@ -1,12 +1,12 @@
 import React from "react";
 
-import ButtonsFilter from "components/ButtonsFilter";
-import { Wrapper, WrapNext, CantProduct } from "./style";
-import ButtonNextPrev from "components/BarProducts/ButtonNextPrev";
+import { Wrapper, WrapNext, CantProduct } from "../common/style";
+import ButtonNextPrev from "components/SectionProducts/common/ButtonNextPrev";
 import Divider from "components/Common/Divider";
 
-export default function HeaderSection({
-  cantProducts,
+
+export default function FooterSection({
+  cantProductos,
   nextPage,
   prevPage,
   cant_page,
@@ -16,17 +16,15 @@ export default function HeaderSection({
 
   //SI SE PASA DEL NUMBERO MAXIMO DE CANTIDAD DE PRODUCTOS SE CORRIJE AL MAXIMO
   numberofproducts =
-    numberofproducts > cantProducts ? cantProducts : numberofproducts;
+    numberofproducts > cantProductos ? cantProductos : numberofproducts;
   return (
     <>
       <Wrapper>
         <CantProduct>
           <p>
-            {numberofproducts} of {cantProducts} products
+            {numberofproducts} of {cantProductos} products
           </p>
         </CantProduct>
-        <div className="line-divider"></div>
-        <ButtonsFilter />
         <WrapNext>
           {page > 0 && (
             <ButtonNextPrev

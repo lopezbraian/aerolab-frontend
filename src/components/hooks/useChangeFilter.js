@@ -1,8 +1,7 @@
+import { useContext, useState } from "react";
 import { FilterContext } from "context/filterContext";
-import React, { useContext, useState } from "react";
-import { Button, WrapButtons, WrapSort } from "./style";
 
-export default function ButtonsFilter() {
+export default function useChangeFilter() {
   const { filter, changeFilter } = useContext(FilterContext);
 
   const [buttonsData, setButtonsData] = useState({
@@ -33,18 +32,6 @@ export default function ButtonsFilter() {
     updateButton(keyFilter);
     updateFilterActive(keyFilter);
   };
-  return (
-    <WrapSort>
-      <p>Sort by:</p>
-      <WrapButtons>
-        {Object.keys(buttonsData).map((k, index) => (
-          <li key={index} onClick={() => changeButtonActive(k)}>
-            <Button active={buttonsData[k].active}>
-              {buttonsData[k].name}
-            </Button>
-          </li>
-        ))}
-      </WrapButtons>
-    </WrapSort>
-  );
+
+  return [buttonsData , changeButtonActive]
 }

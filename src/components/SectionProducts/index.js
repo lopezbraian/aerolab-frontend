@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 
 import { Wrapper, WrapperProducts } from "./style";
-import HeaderSection from "components/BarProducts/HeaderSection";
-import FooterSection from "components/BarProducts/FooterSection";
 import { FilterContext } from "context/filterContext";
-import Products from "components/Products";
 import usePagination from "components/hooks/usePagination";
 import useGetProduct from "components/hooks/useGetProduct";
+
+
+import Products from "components/Products";
+import FilterNav from "./FilterNav";
 
 const CANT_PAGE = 16;
 
@@ -20,23 +21,22 @@ export default function SectionProducts() {
 
   return (
     <Wrapper>
-      <HeaderSection
-        nextPage={nextPage}
+      <FilterNav nextPage={nextPage}
         prevPage={prevPage}
-        cant_page={CANT_PAGE}
+        cantProdutPerPage={CANT_PAGE}
         page={page}
         cantProducts={data.length}
       />
       <WrapperProducts>
         <Products loaded={loaded} products={dataForPage} />
       </WrapperProducts>
-      <FooterSection
+      {/* <FooterSection
         nextPage={nextPage}
         prevPage={prevPage}
         cant_page={CANT_PAGE}
         page={page}
         cantProducts={data.length}
-      />
+      /> */}
     </Wrapper>
   );
 }
